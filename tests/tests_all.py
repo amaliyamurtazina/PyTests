@@ -7,10 +7,12 @@ def test_is_positive():
     assert 1 > 0
 
 # негативное
+# bin(x) - преобразование целого числа в двоичную строку, исключение если не целое
 def test_type_is_not_int():
-    a = 1
-    if (type(a) != int) or (type(a) == int):
-        assert True
+    try:
+        assert bin('1')
+    except TypeError:
+        pass
 
 # позитивное с параметром
 @pytest.mark.parametrize('a, b, expected', [(10, 0, 10), (-10, 0, -10), (-10, 10, 0)])
