@@ -18,9 +18,17 @@ def test_sum_with_param(a, b, expected):
 
 
 def test_existence():
-    users = {'Amaliya': 26, 'Roma':28}
-    assert 'Amaliya' in users
+    users_age = {'Amaliya': 26, 'Roma': 28}
+    assert 'Amaliya' in users_age
 
 @pytest.mark.parametrize('users, expected_len', [({'Amaliya' : 26}, 1), ({'Amaliya': 26, 'Roma':28}, 2), ({}, 0)])
 def test_len(users, expected_len):
     assert len(users) == expected_len
+
+
+def test_pop():
+    users_age = {'Amaliya': 26, 'Roma': 28}
+    try:
+        assert users_age.pop('Dima')
+    except KeyError:
+        pass
